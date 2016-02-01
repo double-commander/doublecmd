@@ -176,12 +176,6 @@ begin
 
   ProcessCommandLineParams; // before load paths
 
-  if not CommandLineParams.NoSplash then
-  begin
-    // Let's show the starting slash screen to confirm user application has been started
-    Application.CreateForm(TfrmStartingSplash, frmStartingSplash);
-    frmStartingSplash.Show;
-  end;
 
   LoadInMemoryOurAccentLookupTableList; // Used for conversion of string to remove accents.
   LoadPaths; // before loading config
@@ -217,12 +211,6 @@ begin
       // in Application.CreateForm above.
       uKeyboard.HookKeyboardLayoutChanged;
 
-      if not CommandLineParams.NoSplash then
-      begin
-        // We may now remove the starting splash screen, most of the application has been started now
-        frmStartingSplash.Close;
-        frmStartingSplash.Release;
-      end;
 
       Application.Run;
 
