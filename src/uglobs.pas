@@ -77,6 +77,7 @@ type
   TTabsOptionsDoubleClick = (tadc_Nothing, tadc_CloseTab, tadc_FavoriteTabs, tadc_TabsPopup);
 
   TTabsPosition = (tbpos_top, tbpos_bottom);
+  TDrivesListPosition = (dlpLegacy, dlpActiveRow, dlpMouseCursor);
   { Show icons mode }
   TShowIconsMode = (sim_none, sim_standart, sim_all, sim_all_and_exe);
   { Custom icons mode }
@@ -317,6 +318,7 @@ var
   gShowColonAfterDrive,
   gShortFormatDriveInfo: Boolean;
   gDrivesListButtonOptions: TDrivesListButtonOptions;
+  gDrivesListPositionMode: TDrivesListPosition;
   gSeparateTree: Boolean;
 
   { Toolbar }
@@ -792,11 +794,27 @@ uses
    ;
 
 const
+  DrivesListPositionNames: array[TDrivesListPosition] of String =
+    ('Legacy', 'ActiveRow', 'MouseCursor');
   TKeyTypingModifierToNodeName: array[TKeyTypingModifier] of String =
     ('NoModifier', 'Alt', 'CtrlAlt');
 
 type
   TLoadConfigProc = function(var ErrorMessage: String): Boolean;
+
+function StringToDrivesListPosition(const Value: String;
+                                    Default: TDrivesListPosition): TDrivesListPosition;
+var
+  Position: TDrivesListPosition;
+begin
+  for Position := Low(TDrivesListPosition) to High(TDrivesListPosition) do
+  begin
+    if SameText(Value, DrivesListPositionNames[Position]) then
+      Exit(Position);
+  end;
+
+  Result := Default;
+end;
 
 var
   // Plugins list version
@@ -2084,6 +2102,7 @@ begin
   gHorizontalFilePanels := False;
   gUpperCaseDriveLetter := False;
   gShowColonAfterDrive := False;
+  gDrivesListPositionMode := dlpLegacy;
   gDrivesListButtonOptions := [dlbShowLabel, dlbShowFileSystem, dlbShowFreeSpace];
   gSeparateTree := False;
 
@@ -3007,6 +3026,10 @@ begin
           LoadOption(SubNode, gDrivesListButtonOptions, dlbShowFreeSpace, 'ShowFreeSpace');
         end;
       end;
+      gDrivesListPositionMode :=
+        StringToDrivesListPosition(GetValue(Node, 'DrivesListPosition',
+                                            DrivesListPositionNames[gDrivesListPositionMode]),
+                                   gDrivesListPositionMode);
       gSeparateTree := GetValue(Node, 'SeparateTree', gSeparateTree);
       gDirectoryTabs := GetValue(Node, 'DirectoryTabs', gDirectoryTabs);
       gCurDir := GetValue(Node, 'CurrentDirectory', gCurDir);
@@ -3727,6 +3750,7 @@ begin
     SetValue(SubNode, 'ShowLabel', dlbShowLabel in gDrivesListButtonOptions);
     SetValue(SubNode, 'ShowFileSystem', dlbShowFileSystem in gDrivesListButtonOptions);
     SetValue(SubNode, 'ShowFreeSpace', dlbShowFreeSpace in gDrivesListButtonOptions);
+    SetValue(Node, 'DrivesListPosition', DrivesListPositionNames[gDrivesListPositionMode]);
     SetValue(Node, 'SeparateTree', gSeparateTree);
     SetValue(Node, 'DirectoryTabs', gDirectoryTabs);
     SetValue(Node, 'CurrentDirectory', gCurDir);
