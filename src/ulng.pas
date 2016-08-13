@@ -846,6 +846,7 @@ resourcestring
   rsOptAssocPluginWith = 'Associate plugin "%s" with:';
   rsOptMouseSelectionButton = 'Left button;Right button;';
   rsOptAutoSizeColumn = 'First;Last;';
+  rsOptDrivesListPosition = 'Legacy;Active row;Mouse cursor';
   rsOptTabsPosition = 'Top;Bottom;';
   rsOptArchiveTypeName = 'Archive type name:';
   //-------------------------------
