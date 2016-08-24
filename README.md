@@ -1,29 +1,50 @@
-**Double Commander** is a [free](https://www.gnu.org/philosophy/free-sw.html) cross-platform open source file manager with two panels side by side (or one above the other). It is inspired by Total Commander and features some innovative new ideas. 
+**Note!**
 
-Double Commander can be run on several platforms and operating systems.
-It supports 32-bit and 64-bit processors. See [Supported platforms](https://github.com/doublecmd/doublecmd/wiki/Supported-platforms)
-for a complete list.
+ Since most of the updates are integrated from the upstream repository, this repository is occasionally rebased.
 
-See Double Commander in action in the [Screenshot Gallery](https://doublecmd.sourceforge.io/gallery).
+## [Download](https://github.com/double-commander/doublecmd/releases)
 
-## Where to start
+# Double commander ![logo](https://doublecmd.sourceforge.io/site/images/logo.png "Double commander")  
 
-### Download
+**A twin panel (side by side) cross platform open source file manager.**  
 
-Go to the [Double Commander download page](https://sourceforge.net/p/doublecmd/wiki/Download) to download the latest release.
+This Double commander on github is fork of the [official double commander project at github](https://github.com/doublecmd/doublecmd).  
+It is inspired by [Total Commander](http://www.ghisler.com/) and features some new ideas.  
 
-You can check the latest version on the [Versions](https://github.com/doublecmd/doublecmd/wiki/Versions) page.
+The goal of this fork is to relief this project from the constraints of archaic development methotodloies by facilitating github capabilities to achieve a better collaboration and attract developers to improve this software to be the best it can.  
 
-See if Double Commander is supported for your platform on the [Supported
-platforms](https://github.com/doublecmd/doublecmd/wiki/Supported-platforms) page.
+Key Features
+------------
 
-### Develop
+* Unicode support.  
+* Background file operations.  
+* Multi-rename tool.  
+* Tabbed interface.  
+* Configurable file panel columns.  
+* Internal file viewer and text editor.  
+* Folder like bahviour of many archive file types.  
+* Advanced search (in files).  
+* Configurable button bar to start external programs or internal menu commands.  
+* Total Commander plugins compatibility WCX, WDX and WLX plug-ins support.  
+* File operations logging.  
+* Fully configurable key mappings.  
 
-For more information on the development of Double Commander,
-see the [Development](https://github.com/doublecmd/doublecmd/wiki/Development) page.
+Build
+---------
+**Building the project on windows.**  
 
-### Discuss
-  
-Go to our [forum](https://doublecmd.h1n.ru) for discussions. There are English and Russian sections.
+1. Download [Lazarus](http://www.lazarus-ide.org/) version 1.8 or higher and install to c:\lazarus  
+2. Clone this repository using "git clone https://github.com/double-commander/doublecmd.git" or fork the project and clone your repository.  
+3. Run build.bat  
 
-If you want to stay up-to-date with the project, you can check out the available [news feeds](https://github.com/doublecmd/doublecmd/wiki/News-feeds).
+Opening new issues
+---------
+* Prior opening a new issue please review the [current issues](../../issues) to make sure an identical issue isn't already exists.   
+* Test your issue using one of the [lastest builds](../../releases) to make sure it's still relevant   
+* Bugs should use this [template](../../wiki/Open-a-bug-template)  
+
+Work flow
+---------
+Since currently changes are slim, the 'master' branch in this repository is being rebased every week on top of the master branch in the upstream repository.
+Once a fair amount of developers will use this repository, a rebase will not occur, but a normal 
+merge.
