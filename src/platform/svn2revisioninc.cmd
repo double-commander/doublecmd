@@ -5,7 +5,7 @@ export REVISION_INC=$1/dcrevision.inc
 rm -f $REVISION_INC
 cp ../units/dcrevision.inc $REVISION_INC
 
-export REVISION=$(svnversion ../ | sed -e 's/\([0-9]*\).*/\1/')
+export REVISION=$(git rev-parse --short HEAD)
 
 if [ ! -z $REVISION ]; then
 
