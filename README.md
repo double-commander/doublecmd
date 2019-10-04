@@ -1,7 +1,3 @@
-**Note!**
-
- Since most of the updates are integrated from the upstream branch at sourceforge, the master branch is occasionally rebased.
-
 # Double commander ![logo](https://doublecmd.sourceforge.io/site/images/logo.png "Double commander")  
 
 **A twin panel (side by side) cross platform open source file manager.**  
@@ -10,6 +6,9 @@ Double commander on github is fork of the [original double commander project at 
 It is inspired by [Total Commander](http://www.ghisler.com/) and features some new ideas.  
 
 The goal of this fork is to relief this project from the svn constraints by using github as a platform to achieve a better collaboration and attract developers to improve this software to be the best it can.  
+
+[Download portable version for windows here](https://github.com/double-commander/doublecmd/releases)  
+[Download older versions here](https://github.com/TheNicker/doublecmd/releases)
 
 Key Features
 ------------
@@ -26,6 +25,9 @@ Key Features
 * Total Commander plugins compatibility WCX, WDX and WLX plug-ins support.  
 * File operations logging.  
 * Fully configurable key mappings.  
+
+**Note!**
+ Since most of the updates are integrated from the upstream branch at sourceforge, the master branch is occasionally rebased.
 
 Build
 ---------
