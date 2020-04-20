@@ -2,6 +2,8 @@
 
  Since most of the updates are integrated from the upstream branch at sourceforge, the master branch is occasionally rebased.
 
+## [Download](https://github.com/double-commander/doublecmd/releases)
+
 # Double commander ![logo](https://doublecmd.sourceforge.io/site/images/logo.png "Double commander")  
 
 **A twin panel (side by side) cross platform open source file manager.**  
