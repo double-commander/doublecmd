@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: b5aaebc75354984d7cee90405a1f6642\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-17 23:08+0300\n"
-"PO-Revision-Date: 2020-12-29 13:49\n"
+"PO-Revision-Date: 2020-12-29 14:12\n"
 "Last-Translator: Full Name <email@address>\n"
 "Language-Team: Belarusian\n"
 "MIME-Version: 1.0\n"
@@ -6534,7 +6534,7 @@ msgstr "Ст&варыць файл журнала:"
 
 #: tfrmoptionslog.cblogfilecount.caption
 msgid "Maximum log file count"
-msgstr ""
+msgstr "Максімальная колькасць файлаў журнала"
 
 #: tfrmoptionslog.cbloginfo.caption
 msgid "Log &information messages"
@@ -8262,32 +8262,32 @@ msgstr "&Добра"
 
 #: tfrmselectduplicates.caption
 msgid "Select duplicate files"
-msgstr ""
+msgstr "Абраць дублікаты файлаў"
 
 #: tfrmselectduplicates.chkleaveunselected.caption
 msgid "&Leave at least one file in each group unselected:"
-msgstr ""
+msgstr "&Пакінуць прынамсі адзін файл з кожнай групы невылучаным:"
 
 #: tfrmselectduplicates.cmbincludemask.text
 msgctxt "tfrmselectduplicates.cmbincludemask.text"
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #: tfrmselectduplicates.lblexcludemask.caption
 msgid "&Remove selection by name/extension:"
-msgstr ""
+msgstr "&Прыбраць вылучэнне па назве ці пашырэнні:"
 
 #: tfrmselectduplicates.lblfirstmethod.caption
 msgid "&1."
-msgstr ""
+msgstr "&1."
 
 #: tfrmselectduplicates.lblincludemask.caption
 msgid "Select by &name/extension:"
-msgstr ""
+msgstr "Абраць па &назве ці пашырэнні:"
 
 #: tfrmselectduplicates.lblsecondmethod.caption
 msgid "&2."
-msgstr ""
+msgstr "&2."
 
 #: tfrmselectpathrange.buttonpanel.cancelbutton.caption
 msgctxt "tfrmselectpathrange.buttonpanel.cancelbutton.caption"
@@ -8522,17 +8522,17 @@ msgstr "Запісаць"
 #: tfrmsetfileproperties.zvcreationdatetime.textfornulldate
 msgctxt "tfrmsetfileproperties.zvcreationdatetime.textfornulldate"
 msgid " "
-msgstr ""
+msgstr " "
 
 #: tfrmsetfileproperties.zvlastaccessdatetime.textfornulldate
 msgctxt "tfrmsetfileproperties.zvlastaccessdatetime.textfornulldate"
 msgid " "
-msgstr ""
+msgstr " "
 
 #: tfrmsetfileproperties.zvlastwritedatetime.textfornulldate
 msgctxt "tfrmsetfileproperties.zvlastwritedatetime.textfornulldate"
 msgid " "
-msgstr ""
+msgstr " "
 
 #: tfrmsortanything.btnsort.caption
 msgid "&Sort"
@@ -9308,7 +9308,7 @@ msgstr "На ўвесь экран"
 
 #: tfrmviewer.btngiftobmp.hint
 msgid "Export Frame"
-msgstr ""
+msgstr "Экспарт рамкі"
 
 #: tfrmviewer.btnhightlight.hint
 msgctxt "TFRMVIEWER.BTNHIGHTLIGHT.HINT"
@@ -9317,7 +9317,7 @@ msgstr "Падсвятленне"
 
 #: tfrmviewer.btnnextgifframe.hint
 msgid "Next Frame"
-msgstr ""
+msgstr "Наступная рамка"
 
 #: tfrmviewer.btnpaint.hint
 msgctxt "TFRMVIEWER.BTNPAINT.HINT"
@@ -9327,11 +9327,11 @@ msgstr "Маляванне"
 #: tfrmviewer.btnpenwidth.caption
 msgctxt "tfrmviewer.btnpenwidth.caption"
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: tfrmviewer.btnprevgifframe.hint
 msgid "Previous Frame"
-msgstr ""
+msgstr "Папярэдняя рамка"
 
 #: tfrmviewer.btnredeye.hint
 msgid "Red Eyes"
@@ -9368,7 +9368,7 @@ msgstr "&Рэдагаваць"
 
 #: tfrmviewer.miellipse.caption
 msgid "Ellipse"
-msgstr ""
+msgstr "Эліпс"
 
 #: tfrmviewer.miencoding.caption
 msgctxt "TFRMVIEWER.MIENCODING.CAPTION"
@@ -9391,7 +9391,7 @@ msgstr "Аловак"
 
 #: tfrmviewer.mirect.caption
 msgid "Rect"
-msgstr ""
+msgstr "Прамавугольнік"
 
 #: tfrmviewer.mirotate.caption
 msgid "Rotate"
@@ -9877,7 +9877,7 @@ msgstr "&Аўтаматычная змена назвы зыходных фай�
 
 #: ulng.rsdlgbuttonautorenametarget
 msgid "A&uto-rename target files"
-msgstr ""
+msgstr "&Аўтаматычная змена назвы мэтавых файлаў"
 
 #: ulng.rsdlgbuttoncancel
 msgctxt "ulng.rsdlgbuttoncancel"
@@ -12964,7 +12964,7 @@ msgstr "Абраць каталог"
 
 #: ulng.rsselectduplicatemethod
 msgid "Newest;Oldest;Largest;Smallest;First in group;Last in group"
-msgstr ""
+msgstr "Навейшыя;Старэйшыя;Большыя;Меншыя;Першыя ў групе;Апошнія ў групе"
 
 #: ulng.rsselectyoufindfileswindow
 msgid "Select your window"
