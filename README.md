@@ -33,11 +33,9 @@ Build
 ---------
 **Building the project on windows.**  
 
-1. Download [Lazarus](http://www.lazarus-ide.org/) version 1.6 and install to c:\lazarus  
-2. Download [MinGW](https://sourceforge.net/projects/mingw/files/) and install to c:\MinGW.  
-   in the MinGW installation manager, install the GNU-C and the GNU-C++ compilers.
-3. Clone this repository using "git clone https://github.com/TheNicker/doublecmd.git" or fork the project and clone your repository.  
-4. Run build.bat  
+1. Download [Lazarus](http://www.lazarus-ide.org/) version 1.8 or higher and install to c:\lazarus  
+2. Clone this repository using "git clone https://github.com/double-commander/doublecmd.git" or fork the project and clone your repository.  
+3. Run build.bat  
 
 
 Work flow
