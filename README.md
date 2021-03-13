@@ -1,6 +1,7 @@
 **Note!**
 
- Since most of the updates are integrated from the upstream branch at sourceforge, the master branch is occasionally rebased.
+The original goal of this fork was to host the Double Commander project on the modern GitHub platform, and attract new developers. In the meantime, the maintainer of Double Commander has [migrated the code to GitHub](https://github.com/doublecmd/doublecmd/issues/6). Development is now active there.
+
 
 ## [Download](https://github.com/double-commander/doublecmd/releases)
 
@@ -11,7 +12,6 @@
 This project, Double Commander on Github, is a fork of the [original double commander project at source forge](http://doublecmd.sourceforge.net/).  
 It is inspired by [Total Commander](http://www.ghisler.com/) and features some new ideas.  
 
-The goal of this fork is to host the project on the modern GitHub platform, relieve developers from the constraints of the old SVN/SourceForge hosting, and attract new developers to improve this software to the best it can, given that [previous attempts at hosting on GitHub have been unsuccessful](https://github.com/doublecmd/doublecmd/issues/6).
 
 Key Features
 ------------
