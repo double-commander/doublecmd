@@ -8,10 +8,10 @@
 
 **A twin panel (side by side) cross platform open source file manager.**  
 
-Double commander on github is fork of the [original double commander project at source forge](http://doublecmd.sourceforge.net/).  
+This project, Double Commander on Github, is a fork of the [original double commander project at source forge](http://doublecmd.sourceforge.net/).  
 It is inspired by [Total Commander](http://www.ghisler.com/) and features some new ideas.  
 
-The goal of this fork is to relief this project from the svn constraints by using github as a platform to achieve a better collaboration and attract developers to improve this software to be the best it can.  
+The goal of this fork is to host the project on the modern GitHub platform, relieve developers from the constraints of the old SVN/SourceForge hosting, and attract new developers to improve this software to the best it can, given that [previous attempts at hosting on GitHub have been unsuccessful](https://github.com/doublecmd/doublecmd/issues/6).
 
 Key Features
 ------------
