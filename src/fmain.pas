@@ -561,7 +561,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure FormKeyUp( Sender: TObject; var {%H-}Key: Word; Shift: TShiftState) ;
     function MainToolBarToolItemShortcutsHint(Sender: TObject; ToolItem: TKASNormalItem): String;
-    procedure mnuAllOperStartClick(Sender: TObject);
+	procedure mnuAllOperStartClick(Sender: TObject);
     procedure mnuAllOperStopClick(Sender: TObject);
     procedure mnuAllOperPauseClick(Sender: TObject);
     procedure mnuAllOperProgressClick(Sender: TObject);
@@ -842,6 +842,8 @@ type
     procedure UpdateDiskCount;
     procedure UpdateSelectedDrives;
     procedure UpdateGUIFunctionKeys;
+    procedure UpdateMainTitleBar;
+    function GenerateTitle: String;
     procedure CreateDiskPanel(dskPanel : TKASToolBar);
     procedure SetPanelDrive(aPanel: TFilePanelSelect; Drive: PDrive; ActivateIfNeeded: Boolean);
     function CreateFileView(sType: String; Page: TFileViewPage; AConfig: TXmlConfig; ANode: TXmlNode): TFileView;
@@ -1040,23 +1042,7 @@ procedure TfrmMain.FormCreate(Sender: TObject);
     Result.OnDragOver:= @NotebookDragOver;
     Result.OnDragDrop:= @NotebookDragDrop;
   end;
-  function GenerateTitle():String;
-  var 
-    ServernameString: String;
-  begin
-    ServernameString := '';
-    if Length(UniqueInstance.ServernameByUser) > 0 then
-      ServernameString := ' [' + UniqueInstance.ServernameByUser + ']';
-
-    Result := Format('%s%s %s build %s; %s',
-        ['Double Commander',
-        ServernameString,
-        dcVersion,
-        dcRevision,
-        dcBuildDate]
-    );
-  end;
-
+  
 var
   HMMainForm: THMForm;
   I: Integer;
@@ -1083,8 +1069,6 @@ begin
   ConvertToolbarBarConfig(gpCfgDir + 'default.bar');
   CreateDefaultToolbar;
 
-  //Caption of main window
-  Self.Caption := GenerateTitle();
   // Remove the initial caption of the button, which is just a text of the associated action.
   // The text would otherwise be briefly shown before the drive button was updated.
   btnLeftDrive.Caption := '';
@@ -1176,7 +1160,10 @@ begin
   UpdateWindowView;
   gFavoriteTabsList.AssociatedMainMenuItem := mnuFavoriteTabs;
   gFavoriteTabsList.RefreshAssociatedMainMenu;
-
+  
+  //Caption of main window
+  UpdateMainTitleBar;
+  
   // Update selected drive and free space before main form is shown,
   // otherwise there is a bit of delay.
   UpdateTreeView;
@@ -2513,6 +2500,7 @@ begin
 
   UpdatePrompt;
   UpdateTreeViewPath;
+  UpdateMainTitleBar;
 end;
 
 procedure TfrmMain.nbPageMouseUp(Sender: TObject; Button: TMouseButton;
@@ -4399,6 +4387,7 @@ begin
               glsDirHistory.Move(Index, 0);
             end;
             UpdateTreeViewPath;
+            UpdateMainTitleBar;
           end;
 
           if actSyncChangeDir.Checked and (FileView = ActiveFrame) then
@@ -5779,6 +5768,7 @@ begin
   if PanelSelected = AValue then Exit;
   PanelSelected := AValue;
   UpdateTreeViewPath;
+  UpdateMainTitleBar;
   UpdatePrompt;
   if actSyncChangeDir.Checked then begin
     FSyncChangeDir:= ExcludeTrailingBackslash(ActiveFrame.CurrentPath);
@@ -6170,6 +6160,41 @@ begin
   end;
   UpdateDriveButtonSelection(btnLeftDrive, FrameLeft);
   UpdateDriveButtonSelection(btnRightDrive, FrameRight);
+end;
+
+function TfrmMain.GenerateTitle: String;
+var
+   ServernameString: String;
+  begin
+    ServernameString := '';
+    if Length(UniqueInstance.ServernameByUser) > 0 then
+      ServernameString := ' [' + UniqueInstance.ServernameByUser + ']';
+
+    Result := Format('%s%s %s build %s; %s',
+        ['Double Commander',
+        ServernameString,
+        dcVersion,
+        dcRevision,
+        dcBuildDate]
+    );
+  end;
+
+procedure TfrmMain.UpdateMainTitleBar;
+var sTmp: String;
+begin
+    if (fspDirectAccess in ActiveFrame.FileSource.Properties) then
+    begin
+		sTmp := ActiveFrame.CurrentPath;
+		Self.Caption:= Format('%s (%s) - %s',
+			[GetLastDir(sTmp),
+			sTmp,
+			GenerateTitle()]
+							);
+    end
+	else
+	begin
+		Self.Caption := GenerateTitle();
+	end;
 end;
 
 procedure TfrmMain.UpdateGUIFunctionKeys;
