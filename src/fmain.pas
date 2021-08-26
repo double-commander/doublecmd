@@ -6182,7 +6182,7 @@ var
 procedure TfrmMain.UpdateMainTitleBar;
 var sTmp: String;
 begin
-    if (fspDirectAccess in ActiveFrame.FileSource.Properties) then
+    if (fspDirectAccess in ActiveFrame.FileSource.Properties) and (gShowCurDirTitleBar = true) then
     begin
 		sTmp := ActiveFrame.CurrentPath;
 		Self.Caption:= Format('%s (%s) - %s',
