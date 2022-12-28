@@ -10032,7 +10032,7 @@ msgstr "Ημερομηνία"
 
 #: ulng.rscolext
 msgid "Ext"
-msgstr "Εξωτερικό"
+msgstr "Προέκταση"
 
 #: ulng.rscolname
 msgctxt "ulng.rscolname"
