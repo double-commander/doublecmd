@@ -27,7 +27,12 @@ unit DCStrUtils;
 interface
 
 uses
-  Classes, SysUtils, DCBasicTypes, LazUtf8;
+   Classes
+{$IFDEF MSWINDOWS}
+  ,Windows
+{$ENDIF}
+  ,SysUtils, DCBasicTypes,LazUtf8;
+
 
 const
   NoQuotesSpecialChars     = [' ', '"', '''', '(', ')', ':', '&', '!', '$', '*', '?', '=', '`', '\', '|', ';', #10];
@@ -658,12 +663,42 @@ begin
       Result:=Result+FileName[I];
 end;
 
+{
+Currently use 'GetFullPathName' for windows for a more robust path normalization. 
+
+TODO: find a cross platform solution for normalizing paths properly!
+STL of the GCC at the function path::lexically_normal does the following to normalized paths:
+Normalization steps:
+
+  - If the path is empty, stop.
+  - Replace each slash character in the root-name with a preferred-separator.
+  - Replace each directory-separator with a preferred-separator.
+  - Remove each dot filename and any immediately following directory-separator.
+  - As long as any appear, remove a non-dot-dot filename immediately followed
+    by a directory-separator and a dot-dot filename, along with any immediately
+    following directory-separator.
+  - If there is a root-directory, remove all dot-dot filenames and any
+    directory-separators immediately following them.
+  - If the last filename is dot-dot, remove any trailing directory-separator.
+  - If the path is empty, add a dot.
+ }
+
 function ExpandAbsolutePath(const Path: String): String;
 var
+{$IFDEF MSWINDOWS}
+  data          :  array [0..MAX_PATH] of char;
+{$ELSE}
   I, J: Integer;
-begin
-  Result := Path;
+{$ENDIF}
 
+begin
+{$IFDEF MSWINDOWS}
+  if (GetFullPathNameA(PChar(Path),MAX_PATH,data,PLPSTR(nil)) > 0) then
+    Result:= data
+  else
+    Result:= Path;
+{$ELSE}
+  Result := Path;
   {First remove all references to '\.\'}
   I := Pos (DirectorySeparator + '.' + DirectorySeparator, Result);
   while I <> 0 do
@@ -687,6 +722,7 @@ begin
         Delete (Result, J, I - J + 3);
       I := Pos (DirectorySeparator + '..', Result);
     end;
+{$ENDIF}
 end;
 
 function HasPathInvalidCharacters(Path: String): Boolean;

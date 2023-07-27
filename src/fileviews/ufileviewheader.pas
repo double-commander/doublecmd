@@ -232,7 +232,7 @@ var
   NewPath: String;
   AClass: TFileSourceClass;
 begin
-  NewPath:= NormalizePathDelimiters(FPathEdit.Text);
+  NewPath:= ExpandAbsolutePath(FPathEdit.Text);
   NewPath:= ReplaceEnvVars(ReplaceTilde(NewPath));
   AClass:= gVfsModuleList.GetFileSource(NewPath);
 
