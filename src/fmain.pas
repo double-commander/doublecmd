@@ -5903,7 +5903,7 @@ begin
           else
             begin
               sDir:= RemoveQuotation(Copy(sCmd, iIndex + 3, Length(sCmd)));
-              sDir:= NormalizePathDelimiters(Trim(sDir));
+              sDir:= mbExpandFileNameForLocalFile(Trim(sDir));
 
               if (sDir = DirectorySeparator) or (sDir = '..') then
               begin

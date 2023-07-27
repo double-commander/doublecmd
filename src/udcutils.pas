@@ -81,6 +81,14 @@ function ReplaceTilde(const Path: String): String;
    @returns(Absolute file name.)
 }
 function mbExpandFileName(const sFileName: String): String;
+
+{en
+   Expands the file name with environment variables by replacing them by absolute path specifically for a local file.
+   @param(sFileName File name to expand.)
+   @returns(Absolute file name.)
+}
+function mbExpandFileNameForLocalFile(const sFileName: String): String;
+
 {en
   Convert Int64 to string with Thousand separators. We can't use FloatToStrF with ffNumber because of integer rounding to thousands
   @param(AValue Integer value)
@@ -354,6 +362,17 @@ begin
   else
 {$ENDIF}
     Result := Path;
+end;
+
+function mbExpandFileNameForLocalFile(const sFileName: String): String;
+begin
+    Result:= NormalizePathDelimiters(sFileName);
+    Result:= ReplaceEnvVars(Result);
+    if Pos(PathDelim, Result) <> 0 then
+      Result:= ExpandFileName(Result);
+
+    if ( (Result.Length > 3) and (Result[3] = DirectorySeparator) and (Result[4] = DirectorySeparator)) then
+      Result:= Result.Remove(2,1);
 end;
 
 function mbExpandFileName(const sFileName: String): String;
