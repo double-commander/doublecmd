@@ -794,27 +794,11 @@ uses
    ;
 
 const
-  DrivesListPositionNames: array[TDrivesListPosition] of String =
-    ('Legacy', 'ActiveRow', 'MouseCursor');
   TKeyTypingModifierToNodeName: array[TKeyTypingModifier] of String =
     ('NoModifier', 'Alt', 'CtrlAlt');
 
 type
   TLoadConfigProc = function(var ErrorMessage: String): Boolean;
-
-function StringToDrivesListPosition(const Value: String;
-                                    Default: TDrivesListPosition): TDrivesListPosition;
-var
-  Position: TDrivesListPosition;
-begin
-  for Position := Low(TDrivesListPosition) to High(TDrivesListPosition) do
-  begin
-    if SameText(Value, DrivesListPositionNames[Position]) then
-      Exit(Position);
-  end;
-
-  Result := Default;
-end;
 
 var
   // Plugins list version
@@ -3026,10 +3010,8 @@ begin
           LoadOption(SubNode, gDrivesListButtonOptions, dlbShowFreeSpace, 'ShowFreeSpace');
         end;
       end;
-      gDrivesListPositionMode :=
-        StringToDrivesListPosition(GetValue(Node, 'DrivesListPosition',
-                                            DrivesListPositionNames[gDrivesListPositionMode]),
-                                   gDrivesListPositionMode);
+      gDrivesListPositionMode := TDrivesListPosition(
+        GetValue(Node, 'DrivesListPosition', Integer(gDrivesListPositionMode)));
       gSeparateTree := GetValue(Node, 'SeparateTree', gSeparateTree);
       gDirectoryTabs := GetValue(Node, 'DirectoryTabs', gDirectoryTabs);
       gCurDir := GetValue(Node, 'CurrentDirectory', gCurDir);
@@ -3750,7 +3732,7 @@ begin
     SetValue(SubNode, 'ShowLabel', dlbShowLabel in gDrivesListButtonOptions);
     SetValue(SubNode, 'ShowFileSystem', dlbShowFileSystem in gDrivesListButtonOptions);
     SetValue(SubNode, 'ShowFreeSpace', dlbShowFreeSpace in gDrivesListButtonOptions);
-    SetValue(Node, 'DrivesListPosition', DrivesListPositionNames[gDrivesListPositionMode]);
+    SetValue(Node, 'DrivesListPosition', Integer(gDrivesListPositionMode));
     SetValue(Node, 'SeparateTree', gSeparateTree);
     SetValue(Node, 'DirectoryTabs', gDirectoryTabs);
     SetValue(Node, 'CurrentDirectory', gCurDir);
